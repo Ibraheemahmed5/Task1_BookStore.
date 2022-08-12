@@ -65,7 +65,7 @@ class books {
 
       for (var i = 0; i < unique_books.length - 1; i++) {
         print(
-            "${unique_books[i]}${" " * 10}${authorsList[i]}${" " * 10}${ratesList[i]}");
+            "${i + 1}- ${unique_books[i]}${" " * 10}${authorsList[i]}${" " * 10}${ratesList[i]}");
       }
     }
   }
@@ -174,14 +174,13 @@ class books {
     var x = false;
     stdout.write("Enter a query: ");
     names1 = stdin.readLineSync()!;
-    RegExp exp = RegExp(names1, caseSensitive: false);
+    RegExp exp = RegExp(names1.toLowerCase(), caseSensitive: false);
     print("Book name         Book author     rate");
 
     for (var i = 0; i < unique_books.length - 1; i++) {
-      if (exp.hasMatch(unique_books[i]!.toLowerCase()) ||
-          exp.hasMatch(unique_books[i]!.toUpperCase())) {
+      if (exp.hasMatch(unique_books[i]!.toLowerCase())) {
         print(
-            "'' ${unique_books[i]} ''           ${authorsList[i]}         ${ratesList[i]}");
+            "' ${unique_books[i]} '           ${authorsList[i]}         ${ratesList[i]}");
         x = true;
       }
     }
